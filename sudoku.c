@@ -86,7 +86,7 @@ int is_valid(Node* n){
           return 0;
         }
     }
-    free(contadorsubMatriz);
+  
   }
   return 1;
 }
