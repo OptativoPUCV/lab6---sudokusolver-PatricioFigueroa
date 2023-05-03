@@ -59,8 +59,8 @@ int is_valid(Node* n){
         {
          int l=3*(k/3) + (p/3) ;
          int m=3*(k%3) + (p%3) ;
-          contadorsubMatriz[n->sudo[i][j]] += 1;
-        if(contadorsubMatriz[n->sudo[i][j]] >= 1) return 0;
+          contadorsubMatriz[n->sudo[l][m]] += 1;
+        if(contadorsubMatriz[n->sudo[l][m]] >= 1) return 0;
         }
       }
     for(int j = 0; j < 9; j++)
