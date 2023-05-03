@@ -88,6 +88,7 @@ int is_valid(Node* n){
     }
   
   }
+  
   return 1;
 }
 
@@ -138,9 +139,11 @@ Node* DFS(Node* initial, int* cont){
       if(is_final(n) == 1)
         return n;
       List *lista = get_adj_nodes(n);
-      for(Node* i = first(lista); i != NULL; i = next(lista))
+      Node* i = first(lista);
+      while(i != NULL)
         {
-          push(S, i);
+          push(S,i);
+          i = next(lista);
         }
       free(n);
       (*cont) ++;
