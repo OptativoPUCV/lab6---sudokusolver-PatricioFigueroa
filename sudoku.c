@@ -130,8 +130,13 @@ Node* DFS(Node* initial, int* cont){
       pop(S);
       if(is_final(n) == 1)
         return n;
-      
-      
+      List *lista = get_adj_nodes(n);
+      for(Node* i = first(lista); i != NULL; i = next(lista))
+        {
+          push(S, i);
+        }
+      free(n);
+      (*cont) ++;
     }
   return NULL;
 }
