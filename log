@@ -38,3 +38,9 @@ sudoku.c:57:13: error: unused variable ‘p’ [-Werror=unused-variable]
 cc1: all warnings being treated as errors
 Compilation failed
 4dd7393
+Wed 03 May 2023 06:33:20 PM UTC: 
+ sudoku.c | 3 +--
+ 1 file changed, 1 insertion(+), 2 deletions(-)
+ tests:  2|4
+total_score: 15/70
+6dd0cb8

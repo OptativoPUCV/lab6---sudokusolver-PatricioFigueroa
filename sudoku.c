@@ -54,8 +54,7 @@ int is_valid(Node* n){
         if(contadorCol[n->sudo[i][j]] >= 1) return 0;
         contadorFilas[n->sudo[i][j]] += 1;
         if(contadorFilas[n->sudo[i][j]] >= 1) return 0;
-        int p=3*(i/3) + (j/3) ;
-        int k=3*(i%3) + (j%3) ;
+
         
       }
   }
