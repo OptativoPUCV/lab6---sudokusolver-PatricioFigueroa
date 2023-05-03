@@ -120,3 +120,17 @@ sudoku.c:119:5: note: ...this statement, but the latter is misleadingly indented
 cc1: all warnings being treated as errors
 Compilation failed
 39fd5b8
+Wed 03 May 2023 07:03:26 PM UTC: 
+ sudoku.c | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+In file included from test.c:5:
+sudoku.c: In function ‘is_final’:
+sudoku.c:116:4: error: this ‘for’ clause does not guard... [-Werror=misleading-indentation]
+  116 |    for(int i = 0; i < 9; i++)
+      |    ^~~
+sudoku.c:120:5: note: ...this statement, but the latter is misleadingly indented as if it were guarded by the ‘for’
+  120 |     return 1;
+      |     ^~~~~~
+cc1: all warnings being treated as errors
+Compilation failed
+7935984
