@@ -52,6 +52,7 @@ int is_valid(Node* n){
     contadorCol = calloc(10, sizeof(int));
     for(int j = 0; j < 9; j++)
       {
+        contadorsubMatriz = calloc(10, sizeof(int));
         contadorCol[n->sudo[i][j]] += 1;
         if(contadorCol[n->sudo[i][j]] >= 1) return 0;
         int k= i -1 + j/3 , p;
@@ -62,6 +63,7 @@ int is_valid(Node* n){
           contadorsubMatriz[n->sudo[l][m]] += 1;
         if(contadorsubMatriz[n->sudo[l][m]] >= 1) return 0;
         }
+        free(contadorsubMatriz);
       }
     for(int j = 0; j < 9; j++)
       {
@@ -69,7 +71,6 @@ int is_valid(Node* n){
         if(contadorFilas[n->sudo[i][j]] >= 1) return 0;
       }
     free(contadorCol);
-    
   }
   return 1;
 }
