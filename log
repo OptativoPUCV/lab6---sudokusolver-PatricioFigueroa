@@ -106,3 +106,17 @@ Wed 03 May 2023 07:01:50 PM UTC:
  tests:  6|2
 total_score: 45/70
 76a67cc
+Wed 03 May 2023 07:03:04 PM UTC: 
+ sudoku.c | 5 ++++-
+ 1 file changed, 4 insertions(+), 1 deletion(-)
+In file included from test.c:5:
+sudoku.c: In function ‘is_final’:
+sudoku.c:116:4: error: this ‘for’ clause does not guard... [-Werror=misleading-indentation]
+  116 |    for(int i = 0; i < 9; i++)
+      |    ^~~
+sudoku.c:119:5: note: ...this statement, but the latter is misleadingly indented as if it were guarded by the ‘for’
+  119 |     return 1;
+      |     ^~~~~~
+cc1: all warnings being treated as errors
+Compilation failed
+39fd5b8
