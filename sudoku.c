@@ -46,17 +46,30 @@ void print_node(Node* n){
 int is_valid(Node* n){
   int *contadorFilas = calloc(10, sizeof(int));
   int *contadorCol = calloc(10, sizeof(int));
+  int *contadorsubMatriz = calloc(10, sizeof(int));
   for(int i = 0; i < 9; i++)
   {
+    contadorCol = calloc(10, sizeof(int));
     for(int j = 0; j < 9; j++)
       {
         contadorCol[n->sudo[i][j]] += 1;
         if(contadorCol[n->sudo[i][j]] >= 1) return 0;
+        int k= i -1 + j/3 , p;
+        for(p=0;p<9;p++)
+        {
+         int l=3*(k/3) + (p/3) ;
+         int m=3*(k%3) + (p%3) ;
+          contadorsubMatriz[n->sudo[i][j]] += 1;
+        if(contadorsubMatriz[n->sudo[i][j]] >= 1) return 0;
+        }
+      }
+    for(int j = 0; j < 9; j++)
+      {
         contadorFilas[n->sudo[i][j]] += 1;
         if(contadorFilas[n->sudo[i][j]] >= 1) return 0;
-
-        
       }
+    free(contadorCol);
+    
   }
   return 1;
 }
