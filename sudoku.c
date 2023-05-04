@@ -140,7 +140,7 @@ Node* DFS(Node* initial, int* cont){
         return n;
       List *lista = get_adj_nodes(n);
       Node* i = first(lista);
-      for(Node* i = first(lista); i != NULL; i = next(lista))
+      for( i = first(lista); i != NULL; i = next(lista))
         {
           push(S, i);
         }
