@@ -188,3 +188,22 @@ Wed 03 May 2023 07:22:36 PM UTC:
  tests:  8|1
 total_score: 60/70
 881f881
+Thu 04 May 2023 02:49:09 PM UTC: 
+ sudoku.c | 7 +++----
+ 1 file changed, 3 insertions(+), 4 deletions(-)
+In file included from test.c:5:
+sudoku.c: In function ‘DFS’:
+sudoku.c:142:13: error: unused variable ‘i’ [-Werror=unused-variable]
+  142 |       Node* i = first(lista);
+      |             ^
+test.c: At top level:
+test.c:245:5: error: redefinition of ‘main’
+  245 | int main( int argc, char *argv[] ) {
+      |     ^~~~
+In file included from test.c:5:
+sudoku.c:156:5: note: previous definition of ‘main’ with type ‘int(int,  char **)’
+  156 | int main( int argc, char *argv[] ){
+      |     ^~~~
+cc1: all warnings being treated as errors
+Compilation failed
+de1de3e
