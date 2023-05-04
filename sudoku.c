@@ -42,53 +42,54 @@ void print_node(Node* n){
     }
     printf("\n");
 }
-
 int is_valid(Node* n){
-  int *contadorFilas = calloc(10, sizeof(int));
-  int *contadorCol = calloc(10, sizeof(int));
-  int *contadorsubMatriz = calloc(10, sizeof(int));
-  for(int i = 0; i < 9; i++)
-  {
-   
-    for(int j = 0; j < 9; j++)
-      {
-        if(n->sudo[i][j] != 0)
-        {
-        contadorCol[n->sudo[i][j]] += 1;
-        if(contadorCol[n->sudo[i][j]] > 1) return 0;
-        }
-      }
-    for(int j = 0; j < 9; j++)
-      {
-        if(n->sudo[i][j] != 0)
-        {
-          contadorFilas[n->sudo[i][j]] += 1;
-          if(contadorFilas[n->sudo[i][j]] > 1) return 0;
-        }
-      }
-    free(contadorFilas);
-    free(contadorCol);
-     contadorCol = calloc(10, sizeof(int));
-     contadorFilas = calloc(10, sizeof(int));
+  int *valido= calloc(sizeof(int),10), i, j, p;
 
-  }
-  
-  for(int k = 0; k < 9; k++)
-    {
-      contadorsubMatriz = calloc(10, sizeof(int));
-      for(int p=0;p<9;p++){
-        int i=3*(k/3) + (p/3) ;
-        int j=3*(k%3) + (p%3) ;
-        if(n->sudo[i][j] != 0)
+  for(i=0;i<9;i++)
+  {
+      for(j=0;j<9;j++)
+      {           
+        if(n->sudo[i][j] !=0)
         {
-          contadorsubMatriz[n->sudo[i][j]] ++;
-          if(contadorsubMatriz[n->sudo[i][j]] > 1)
-          return 0;
+          if(valido[n->sudo[i][j]] == 1)
+            return 0;
+          else
+            valido[n->sudo[i][j]] = 1;
         }
-    }
-  
+      }
+    free(valido);
+    valido = calloc(sizeof(int),10);
+      for(j=0;j<9;j++)
+      {           
+        if(n->sudo[j][i] !=0)
+        {
+          if(valido[n->sudo[j][i]] == 1 )
+            return 0;
+          else
+            valido[n->sudo[j][i]] = 1;
+        }
+      }
+    free(valido);
+    valido = calloc(sizeof(int),10);
   }
   
+  free(valido);
+  
+  for(int k=0 ; k<9 ; k++)
+  {
+    valido = calloc(sizeof(int),10);
+    for(p=0;p<9;p++){
+      i=3*(k/3) + (p/3) ;
+      j=3*(k%3) + (p%3) ;
+      if(n->sudo[i][j] !=0)
+      {
+        if(valido[n->sudo[i][j]] == 1 )
+          return 0;
+        else
+          valido[n->sudo[i][j]] = 1;
+      }
+    }
+  }
   return 1;
 }
 
