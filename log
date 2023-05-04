@@ -207,3 +207,14 @@ sudoku.c:156:5: note: previous definition of ‘main’ with type ‘int(int,  c
 cc1: all warnings being treated as errors
 Compilation failed
 de1de3e
+Thu 04 May 2023 02:49:19 PM UTC: 
+ sudoku.c | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+In file included from test.c:5:
+sudoku.c: In function ‘DFS’:
+sudoku.c:142:13: error: unused variable ‘i’ [-Werror=unused-variable]
+  142 |       Node* i = first(lista);
+      |             ^
+cc1: all warnings being treated as errors
+Compilation failed
+b8d7057
